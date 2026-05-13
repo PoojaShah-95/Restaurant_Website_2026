@@ -1,0 +1,23 @@
+{
+  "name": "restaurant_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build-css": "sass style.scss style.css",
+    "watch-css": "sass --watch style.scss:style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "express": "^5.2.1",
+    "swiper": "^12.1.3"
+  },
+  "devDependencies": {
+    "saas": "^1.0.0",
+    "sass": "^1.99.0"
+  }
+}
