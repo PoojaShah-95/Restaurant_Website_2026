@@ -1,0 +1,99 @@
+﻿@import 'variables';
+
+#testimonials {
+    background: linear-gradient($glass-overlay, $glass-overlay), url('../assets/images/image_6.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: $white;
+    overflow: hidden;
+
+    .carousel {
+        //max-width: 800px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    .carousel-item {
+        padding: 20px 0;
+        text-align: center;
+
+        h4 {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            line-height: 1.6;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+
+            &::before {
+                content: '"';
+                display: block;
+                font-size: 4rem;
+                color: $primary-accent;
+                height: 30px;
+                line-height: 1;
+                margin-bottom: 10px;
+                opacity: 0.9;
+            }
+        }
+
+        h5 {
+            font-size: clamp(1rem, 1vw, 1.1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: $primary-accent;
+            margin-bottom: 60px;
+        }
+    }
+
+    .carousel-indicators {
+        bottom: 0;
+
+        li {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid $white;
+            background-color: transparent;
+            margin: 0 8px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &.active {
+                background-color: $primary-accent;
+                border-color: $primary-accent;
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 5%;
+
+        span {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 60px 20px;
+
+        .page_title {
+            margin-bottom: 30px;
+        }
+
+        .carousel-item {
+            h4 {
+                padding: 0 10px;
+            }
+        }
+    }
+}
