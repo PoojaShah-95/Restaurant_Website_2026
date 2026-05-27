@@ -1,0 +1,100 @@
+﻿@import 'variables';
+
+.reservation-container {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/images/bg_4.jpg') no-repeat center fixed;
+    background-size: cover;
+
+    .reservation-wrapper {
+        padding: 0 20px 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        #booking-form {
+            width: 100%;
+            max-width: 600px;
+            background: $glass-bg;
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid $glass-border;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+
+            .form-group {
+                margin-bottom: 25px;
+
+                label {
+                    display: block;
+                    margin-bottom: 10px;
+                    font-weight: 500;
+                    color: $text-light;
+                    font-size: 0.9rem;
+                    letter-spacing: 0.5px;
+                }
+
+                input, select {
+                    width: 100%;
+                    padding: 14px;
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    color: #fff;
+                    transition: all 0.3s ease;
+
+                    option {
+                        background: #222;
+                        color: #fff;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: $primary-accent;
+                        background: rgba(255, 255, 255, 0.1);
+                        box-shadow: 0 0 10px rgba($primary-accent, 0.2);
+                    }
+                }
+            }
+
+            .form-row {
+                display: flex;
+                gap: 20px;
+
+                .form-group {
+                    flex: 1;
+                }
+
+                @media (max-width: 576px) {
+                    flex-direction: column;
+                    gap: 0;
+                }
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 18px;
+                background-color: $primary-accent;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                font-size: clamp(1rem, 5vw, 1.1rem);
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                margin-top: 15px;
+
+                &:hover {
+                    background-color: $primary-hover;
+                    transform: translateY(-3px);
+                    box-shadow: 0 10px 20px rgba($primary-accent, 0.4);
+                }
+
+                &:active {
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+}

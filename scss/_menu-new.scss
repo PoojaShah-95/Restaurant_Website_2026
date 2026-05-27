@@ -1,0 +1,162 @@
+@import 'variables';
+
+@keyframes fadeInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu {
+    background-color: $bg-dark;
+    color: $text-light;
+    font-family: 'Poppins', sans-serif;
+
+    .menu-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative; /* Added to allow absolute positioning inside if needed */
+
+        .tabs {
+            display: flex;
+            place-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+
+            .tab-btn {
+                padding: 12px 25px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 3px solid rgba($accent-silver, 0.2);
+                color: $accent-silver;
+                border-radius: 10px;
+                font-weight: 700;
+                white-space: nowrap;
+                transition: $transition;
+
+                &:hover {
+                    border-color: $primary-accent;
+                    color: $primary-accent;
+                }
+
+                &.active {
+                    background: $primary-accent;
+                    border-color: $primary-accent;
+                    color: #fff;
+                    box-shadow: 0 5px 15px rgba($primary-accent, 0.3);
+                }
+            }
+            /* --- Updated Mobile Responsive Design --- */
+            @media (max-width: 768px) {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 5px 20px 15px 20px; /* Added side padding for a peeking effect */
+                margin-left: -20px; 
+                margin-right: -20px;
+                margin-bottom: 30px;
+                gap: 10px;
+                -webkit-overflow-scrolling: touch;
+                &::-webkit-scrollbar {
+                    height: 4px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: rgba($primary-accent, 0.4);
+                    border-radius: 4px;
+                }
+
+                .tab-btn {
+                    padding: 10px 18px;
+                    font-size: 0.9rem;
+                    flex: 0 0 auto;
+                }
+            }
+        }
+        /* Alternate Grid Fix: If you prefer a grid over scrolling, replace the @media block above with this:
+        @media (max-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); // Splits tabs into 2 neat columns
+            gap: 10px;
+            margin-bottom: 30px;
+            
+            .tab-btn {
+                padding: 10px 10px;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+        }
+        */
+
+        .tab-content {
+            display: none;
+
+            &.active {
+                display: block !important;
+                animation: fadeInMenu 0.4s ease-in;
+            }
+
+            .menu-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 60px;
+
+                @media (max-width: 850px) {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+            }
+
+            .menu-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding-bottom: 20px;
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+                transition: $transition;
+
+                .item-info {
+                    h3 {
+                        font-size: 1.2rem;
+                        margin: 0;
+                        color: $text-light;
+                        transition: color 0.3s ease;
+                    }
+
+                    p {
+                        margin: 5px 0 0;
+                        font-size: 0.9rem;
+                        color: $text-dim;
+                        transition: $transition-smooth;
+                    }
+                }
+
+                .price {
+                    color: $primary-accent;
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                    transition: $transition;
+                }
+
+                &:hover {
+                    transform: translateY(-3px);
+                    border-bottom-color: $primary-accent;
+
+                    .item-info h3 {
+                        color: $primary-accent;
+                    }
+
+                    .price {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}

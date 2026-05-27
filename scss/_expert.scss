@@ -1,0 +1,107 @@
+﻿@import 'variables';
+
+#expert {
+    background: radial-gradient(circle at top right, #1e293b, $bg-dark);
+    //padding: 60px 0;
+    overflow: hidden;
+
+    .page_title h1 {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: expert-fade-in 0.8s ease-out forwards;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+
+
+        .box {
+            position: relative;
+            flex: 1 1 250px;
+            max-width: 280px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: expert-slide-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+            &:nth-child(1) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.6s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.8s;
+            }
+            //transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+
+            .imgbx {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                border-radius: 12px;
+                overflow: hidden;
+                margin-bottom: 15px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                }
+            }
+
+            .text {
+                h3 {
+                    font-size: 1.25rem;
+                    color: #fff;
+                    margin: 0;
+                    transition: color 0.3s ease;
+                }
+            }
+
+            &:hover {
+                transform: translateY(-10px);
+                border-color: rgba(255, 255, 255, 0.15);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+
+                .imgbx img {
+                    transform: scale(1.08);
+                }
+
+                .text h3 {
+                    color: $accent-silver;
+                }
+            }
+        }
+    }
+}
+
+@keyframes expert-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expert-slide-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
